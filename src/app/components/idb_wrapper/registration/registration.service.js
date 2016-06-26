@@ -3,16 +3,16 @@
 
   angular
     .module('ngIDb')
-    .factory('registration', IDB);
+    .factory('registration', Registration);
 
     /** @ngInject */
-    class Registration(){
+    function Registration($q){
 
       this.registerObjectStore = function(queryDetails){
-  		    var deferred = $q.defer();
-  		    queryDetails.callback = deferred.resolve;
-  		    iDB.registerObjectStore(queryDetails);
-            return deferred.promise;
+        var deferred = $q.defer();
+        queryDetails.callback = deferred.resolve;
+        iDB.registerObjectStore(queryDetails);
+        return deferred.promise;
       }
 
     }

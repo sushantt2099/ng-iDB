@@ -1,12 +1,13 @@
 {
-  "name": "ngIDb",
+  "name": "ngidb",
   "version": "0.0.0",
   "dependencies": {
     "malarkey": "yuanqing/malarkey#~1.3.1",
     "angular-toastr": "~1.5.0",
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
-    "angular": "~1.5.3"
+    "angular": "~1.5.3",
+    "idbase": "*"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"

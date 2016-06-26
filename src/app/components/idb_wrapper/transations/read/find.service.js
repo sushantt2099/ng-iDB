@@ -3,15 +3,15 @@
 
   angular
     .module('ngIDb')
-    .factory('find', IDB);
+    .factory('find', Find);
 
     /** @ngInject */
-    class Find($q){
+    function Find($q){
 
       this.find  = function(queryDetails){
-      	var deferred = $q.defer();
-      	queryDetails.callback = deferred.resolve
-      	iDB.find(queryDetails);
+		var deferred = $q.defer();
+		queryDetails.callback = deferred.resolve
+		iDB.find(queryDetails);
 		return deferred.promise;
       }
     }

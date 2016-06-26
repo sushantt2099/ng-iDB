@@ -3,16 +3,16 @@
 
   angular
     .module('ngIDb')
-    .factory('all', IDB);
+    .factory('all', All);
 
     /** @ngInject */
-    class All($q){
+    function All($q){
 
       this.all = function(queryDetails){
-      		var deferred = $q.defer();
-      		queryDetails.callback = deferred.resolve
-      		iDB.add(queryDetails);
-            return deferred.promise;
+		var deferred = $q.defer();
+		queryDetails.callback = deferred.resolve
+		iDB.add(queryDetails);
+		return deferred.promise;
       }
     }
 })();

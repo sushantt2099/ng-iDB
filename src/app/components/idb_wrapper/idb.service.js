@@ -5,9 +5,10 @@
     .module('ngIDb')
     .factory('$iDB', IDB);
 
-    class IDB(delete, all, find, findByIndex, where, add){
+    function IDB(registration, deleteService, all, find, findByIndex, where, add){
 
-      this.delete = delete.delete;
+      this.registration = registration.registration;
+      this.deleteService = deleteService.delete;
       this.find = find.find;
       this.findByIndex = findByIndex.findByIndex;
       this.where = where.where;

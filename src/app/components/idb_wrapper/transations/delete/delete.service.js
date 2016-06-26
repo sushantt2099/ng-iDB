@@ -3,16 +3,16 @@
 
   angular
     .module('ngIDb')
-    .factory('delete', IDB);
+    .factory('deleteService', DeleteService);
 
     /** @ngInject */
-    class Delete(){
+    function DeleteService($q){
 
       this.delete = function(queryDetails){
-  		var deferred = $q.defer();
-  		queryDetails.callback = deferred.resolve
-  		iDB.delete(queryDetails);
-        return deferred.promise;
+		var deferred = $q.defer();
+		queryDetails.callback = deferred.resolve
+		iDB.delete(queryDetails);
+		return deferred.promise;
       }
 
     }

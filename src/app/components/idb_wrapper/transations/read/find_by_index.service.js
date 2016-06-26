@@ -3,14 +3,14 @@
 
   angular
     .module('ngIDb')
-    .factory('findByIndex', IDB);
+    .factory('findByIndex', FindByIndex);
 
     /** @ngInject */
-    class FindByIndex($q){
+    function FindByIndex($q){
 
       this.findByIndex  = function(queryDetails){
-      	var deferred = $q.defer();
-      	queryDetails.callback = deferred.resolve
+		var deferred = $q.defer();
+		queryDetails.callback = deferred.resolve
 		iDB.findByIndex(queryDetails);
 		return deferred.promise;
       }
