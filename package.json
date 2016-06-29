@@ -1,7 +1,9 @@
 {
-  "name": "ngIDb",
+  "name": "ngidb",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "idbase": "*"
+  },
   "scripts": {
     "test": "gulp test"
   },
