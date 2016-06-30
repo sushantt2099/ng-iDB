@@ -14,7 +14,7 @@
         registration.onInit(function(){
           iDB.add(queryDetails);  
         })
-      return deferred.promise;
+        return deferred.promise;
       }
     }
 })();

@@ -21,10 +21,9 @@
       }
 
       var callOnInitFuncitons = function(){
-        for(var i = 0; i < onInitQueue.length; i++){
-          onInitQueue[i]();
+        while(onInitQueue.length){
+          onInitQueue.pop()();
         }
-        onInitQueue = [];
       }
 
       this.registerObjectStore = function(queryDetails){
