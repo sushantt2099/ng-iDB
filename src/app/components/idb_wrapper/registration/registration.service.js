@@ -8,6 +8,25 @@
     /** @ngInject */
     function Registration($q){
 
+      var initDone = false;
+      var onInitQueue = [];
+
+      this.onInit = function(callback){
+        if(initDone){ 
+          callback();
+          return;
+        }else{
+          onInitQueue.push(callback);
+        }
+      }
+
+      var callOnInitFuncitons = function(){
+        for(var i = 0; i < onInitQueue.length; i++){
+          onInitQueue[i]();
+        }
+        onInitQueue = [];
+      }
+
       this.registerObjectStore = function(queryDetails){
         var deferred = $q.defer();
         queryDetails.callback = deferred.resolve;
@@ -16,10 +35,8 @@
       }
 
       this.init = function(initDetails){
-        var deferred = $q.defer();
-        initDetails.callback = deferred.resolve;
+        initDetails.callback = callOnInitFuncitons
         iDB.init(initDetails);
-        return deferred.promise
 
       }
 

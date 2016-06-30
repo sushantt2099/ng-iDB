@@ -6,13 +6,16 @@
     .service('deleteService', DeleteService);
 
     /** @ngInject */
-    function DeleteService($q){
+    function DeleteService($q, registration){
 
       this.delete = function(queryDetails){
-		    var deferred = $q.defer();
-		    queryDetails.callback = deferred.resolve
-		    iDB.delete(queryDetails);
-		    return deferred.promise;
+        var deferred = $q.defer();
+        queryDetails.callback = deferred.resolve
+        registration.onInit(function(){
+          iDB.delete(queryDetails);
+        })
+		    
+        return deferred.promise;
       }
 
     }

@@ -6,12 +6,15 @@
     .service('findByIndex', FindByIndex);
 
     /** @ngInject */
-    function FindByIndex($q){
+    function FindByIndex($q, registration){
 
       this.findByIndex  = function(queryDetails){
 		var deferred = $q.defer();
 		queryDetails.callback = deferred.resolve
-		iDB.findByIndex(queryDetails);
+    registration.onInit(function(){
+      iDB.findByIndex(queryDetails);
+    })
+		
 		return deferred.promise;
       }
     }

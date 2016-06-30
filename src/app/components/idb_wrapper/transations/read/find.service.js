@@ -6,13 +6,15 @@
     .service('find', Find);
 
     /** @ngInject */
-    function Find($q){
+    function Find($q, registration){
 
       this.find  = function(queryDetails){
-		var deferred = $q.defer();
-		queryDetails.callback = deferred.resolve
-		iDB.find(queryDetails);
-		return deferred.promise;
+        var deferred = $q.defer();
+        queryDetails.callback = deferred.resolve
+        registration.onInit(function(){
+          iDB.find(queryDetails);
+        });
+        return deferred.promise;
       }
     }
 })();
