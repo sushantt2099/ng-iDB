@@ -1,7 +1,7 @@
 {
   "name": "ngidb",
   "version": "0.0.0",
-  "main": "./dist/scripts/app-ff42ed2a43.js",
+  "main": "./dist/scripts/app-*.js",
   "dependencies": {
     "angular": "~1.5.3",
     "idbase": "*"

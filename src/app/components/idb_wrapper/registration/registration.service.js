@@ -15,5 +15,7 @@
         return deferred.promise;
       }
 
+      this.init = iDB.init;
+
     }
 })();
