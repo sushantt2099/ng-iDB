@@ -8,7 +8,7 @@
     /** @ngInject */
     function Add($q){
 
-      this.where  = function(queryDetails){
+      this.add  = function(queryDetails){
 		    var deferred = $q.defer();
 		    queryDetails.callback = deferred.resolve
 		    iDB.add(queryDetails);

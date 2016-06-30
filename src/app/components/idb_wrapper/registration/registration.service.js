@@ -15,7 +15,13 @@
         return deferred.promise;
       }
 
-      this.init = iDB.init;
+      this.init = function(initDetails){
+        var deferred = $q.defer();
+        initDetails.callback = deferred.resolve;
+        iDB.init(initDetails);
+        return deferred.promise
+
+      }
 
     }
 })();
