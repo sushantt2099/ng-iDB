@@ -3,7 +3,7 @@
 
   angular
     .module('ngIDb')
-    .factory('find', Find);
+    .service('find', Find);
 
     /** @ngInject */
     function Find($q){

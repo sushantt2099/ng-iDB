@@ -3,7 +3,7 @@
 
   angular
     .module('ngIDb')
-    .factory('registration', Registration);
+    .service('registration', Registration);
 
     /** @ngInject */
     function Registration($q){

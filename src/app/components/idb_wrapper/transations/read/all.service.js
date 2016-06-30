@@ -3,7 +3,7 @@
 
   angular
     .module('ngIDb')
-    .factory('all', All);
+    .service('all', All);
 
     /** @ngInject */
     function All($q){

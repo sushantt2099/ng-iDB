@@ -3,8 +3,9 @@
 
   angular
     .module('ngIDb')
-    .factory('$iDB', IDB);
+    .service('$iDB', IDB);
 
+    /** @ngInject */
     function IDB(registration, deleteService, all, find, findByIndex, where, add){
 
       this.registration = registration.registration;
@@ -13,5 +14,7 @@
       this.findByIndex = findByIndex.findByIndex;
       this.where = where.where;
       this.add = add.add;
+
+
     }
 })();

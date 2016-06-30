@@ -3,7 +3,7 @@
 
   angular
     .module('ngIDb')
-    .factory('deleteService', DeleteService);
+    .service('deleteService', DeleteService);
 
     /** @ngInject */
     function DeleteService($q){

@@ -3,7 +3,7 @@
 
   angular
     .module('ngIDb')
-    .factory('where', Where);
+    .service('where', Where);
 
     /** @ngInject */
     function Where($q){
