@@ -8,7 +8,7 @@
     /** @ngInject */
     function IDB(registration, deleteService, all, find, findByIndex, where, add){
 
-      this.registration = registration.registration;
+      this.registration = registration;
       this.deleteService = deleteService.delete;
       this.find = find.find;
       this.findByIndex = findByIndex.findByIndex;
