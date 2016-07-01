@@ -9,30 +9,6 @@
 (function () {
   'use strict';
 
-    DeleteService.$inject = ["$q", "registration"];
-  angular
-    .module('ngIDb')
-    .service('deleteService', DeleteService);
-
-    /** @ngInject */
-    function DeleteService($q, registration){
-
-      this.delete = function(queryDetails){
-        var deferred = $q.defer();
-        queryDetails.callback = deferred.resolve
-        registration.onInit(function(){
-          iDB.delete(queryDetails);
-        })
-		    
-        return deferred.promise;
-      }
-
-    }
-})();
-
-(function () {
-  'use strict';
-
     Add.$inject = ["$q", "registration"];
   angular
     .module('ngIDb')
@@ -86,13 +62,13 @@
     function FindByIndex($q, registration){
 
       this.findByIndex  = function(queryDetails){
-		var deferred = $q.defer();
-		queryDetails.callback = deferred.resolve
-    registration.onInit(function(){
-      iDB.findByIndex(queryDetails);
-    })
+    		var deferred = $q.defer();
+    		queryDetails.callback = deferred.resolve
+        registration.onInit(function(){
+          iDB.findByIndex(queryDetails);
+        })
 		
-		return deferred.promise;
+		    return deferred.promise;
       }
     }
 })();
@@ -134,11 +110,35 @@
         var deferred = $q.defer();
         queryDetails.callback = deferred.resolve
         registration.onInit(function(){
-          iDB.add(queryDetails);
+          iDB.all(queryDetails);
         })
 		    
         return deferred.promise;
       }
+    }
+})();
+
+(function () {
+  'use strict';
+
+    DeleteService.$inject = ["$q", "registration"];
+  angular
+    .module('ngIDb')
+    .service('deleteService', DeleteService);
+
+    /** @ngInject */
+    function DeleteService($q, registration){
+
+      this.delete = function(queryDetails){
+        var deferred = $q.defer();
+        queryDetails.callback = deferred.resolve
+        registration.onInit(function(){
+          iDB.delete(queryDetails);
+        })
+		    
+        return deferred.promise;
+      }
+
     }
 })();
 
@@ -179,7 +179,10 @@
       }
 
       this.init = function(initDetails){
-        initDetails.callback = callOnInitFuncitons
+        initDetails.callback = function(){
+          initDone = true;
+          callOnInitFuncitons();
+        }
         iDB.init(initDetails);
 
       }
@@ -199,11 +202,12 @@
     function IDB(registration, deleteService, all, find, findByIndex, where, add){
 
       this.registration = registration;
-      this.deleteService = deleteService.delete;
+      this.delete = deleteService.delete;
       this.find = find.find;
       this.findByIndex = findByIndex.findByIndex;
       this.where = where.where;
       this.add = add.add;
+      this.all = all.all;
 
 
     }
@@ -251,4 +255,4 @@
 
 })();
 
-//# sourceMappingURL=../maps/scripts/app-6761ec6489.js.map
+//# sourceMappingURL=../maps/scripts/app-94688e3766.js.map

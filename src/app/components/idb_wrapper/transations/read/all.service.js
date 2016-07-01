@@ -12,7 +12,7 @@
         var deferred = $q.defer();
         queryDetails.callback = deferred.resolve
         registration.onInit(function(){
-          iDB.add(queryDetails);
+          iDB.all(queryDetails);
         })
 		    
         return deferred.promise;

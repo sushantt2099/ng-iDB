@@ -34,7 +34,10 @@
       }
 
       this.init = function(initDetails){
-        initDetails.callback = callOnInitFuncitons
+        initDetails.callback = function(){
+          initDone = true;
+          callOnInitFuncitons();
+        }
         iDB.init(initDetails);
 
       }

@@ -9,11 +9,12 @@
     function IDB(registration, deleteService, all, find, findByIndex, where, add){
 
       this.registration = registration;
-      this.deleteService = deleteService.delete;
+      this.delete = deleteService.delete;
       this.find = find.find;
       this.findByIndex = findByIndex.findByIndex;
       this.where = where.where;
       this.add = add.add;
+      this.all = all.all;
 
 
     }
