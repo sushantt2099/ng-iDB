@@ -6,14 +6,14 @@
     .service('$iDB', IDB);
 
     /** @ngInject */
-    function IDB(registration, deleteService, all, find, findByIndex, where, add){
+    function IDB(registration, deleteService, all, find, findByIndex, where, save){
 
       this.registration = registration;
       this.delete = deleteService.delete;
       this.find = find.find;
       this.findByIndex = findByIndex.findByIndex;
       this.where = where.where;
-      this.add = add.add;
+      this.save = save.save;
       this.all = all.all;
 
 

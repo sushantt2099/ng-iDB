@@ -9,19 +9,19 @@
 (function () {
   'use strict';
 
-    Add.$inject = ["$q", "registration"];
+    Save.$inject = ["$q", "registration"];
   angular
     .module('ngIDb')
-    .service('add', Add);
+    .service('save', Save);
 
     /** @ngInject */
-    function Add($q, registration){
+    function Save($q, registration){
 
-      this.add  = function(queryDetails){
+      this.save  = function(queryDetails){
         var deferred = $q.defer();
         queryDetails.callback = deferred.resolve
         registration.onInit(function(){
-          iDB.add(queryDetails);  
+          iDB.save(queryDetails);  
         })
         return deferred.promise;
       }
@@ -193,20 +193,20 @@
 (function () {
   'use strict';
 
-    IDB.$inject = ["registration", "deleteService", "all", "find", "findByIndex", "where", "add"];
+    IDB.$inject = ["registration", "deleteService", "all", "find", "findByIndex", "where", "save"];
   angular
     .module('ngIDb')
     .service('$iDB', IDB);
 
     /** @ngInject */
-    function IDB(registration, deleteService, all, find, findByIndex, where, add){
+    function IDB(registration, deleteService, all, find, findByIndex, where, save){
 
       this.registration = registration;
       this.delete = deleteService.delete;
       this.find = find.find;
       this.findByIndex = findByIndex.findByIndex;
       this.where = where.where;
-      this.add = add.add;
+      this.save = save.save;
       this.all = all.all;
 
 
@@ -255,4 +255,4 @@
 
 })();
 
-//# sourceMappingURL=../maps/scripts/app-94688e3766.js.map
+//# sourceMappingURL=../maps/scripts/app-8ce39abdcf.js.map

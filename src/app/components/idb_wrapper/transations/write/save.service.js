@@ -3,16 +3,16 @@
 
   angular
     .module('ngIDb')
-    .service('add', Add);
+    .service('save', Save);
 
     /** @ngInject */
-    function Add($q, registration){
+    function Save($q, registration){
 
-      this.add  = function(queryDetails){
+      this.save  = function(queryDetails){
         var deferred = $q.defer();
         queryDetails.callback = deferred.resolve
         registration.onInit(function(){
-          iDB.add(queryDetails);  
+          iDB.save(queryDetails);  
         })
         return deferred.promise;
       }
